@@ -1,5 +1,4 @@
-
-// =============================================== Import class yang dibutuhkan =============================================== //
+// =============================================== IMPORT CLASS YANG DIBUTUHKAN =============================================== //
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Scanner;
@@ -7,7 +6,7 @@ import java.util.Scanner;
 public class RamenShibuya {
     public static void main(String args[]) {
 
-        // =================================== Inisialisasi objek untuk masing-masing kelas =================================== //
+        // =================================== INISIALISASI OBJEK UNTUK MASING-MASING KELAS =================================== //
         Scanner input = new Scanner(System.in);
         DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
         DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
@@ -28,7 +27,7 @@ public class RamenShibuya {
         System.out.println(" ");
         System.out.println("+====================+ Selamat Datang di Ramen Shibuya +====================+");
         System.out.println(" ");
-        System.out.print("Masukan jumlah Makanan yang ingin dibeli : ");
+        System.out.print("Masukan jumlah Menu yang ingin dibeli : ");
         jum = input.nextInt();
         System.out.println(" ");
         {
@@ -48,6 +47,7 @@ public class RamenShibuya {
         System.out.format("+-----+-----------------+--------------+%n");
         System.out.format("| 6   | Dorayaki        | 10.500       |%n");
         System.out.format("+-----+-----------------+--------------+%n");
+        System.out.println(" ");
         }
 
         // ======================================================= VOUCHER ======================================================= //
@@ -119,7 +119,7 @@ public class RamenShibuya {
                     break;
 
                 default:
-                    System.out.println("Kode Barang Tidak Tersedia");
+                    System.out.println("ID Barang Tidak Tersedia");
             }
         }
 
@@ -130,10 +130,9 @@ public class RamenShibuya {
         kursIndonesia.setDecimalFormatSymbols(formatRp);    
 
         System.out.println(" ");
-        System.out.println("+---------------------------------+ PROSES +--------------------------------+");
-        System.out.println(" ");
+        System.out.println("+--------------------------+ P R O S E S +------------------------------+");
         System.out.println("+-----+------------------------+----------------+-----+-----------------+");
-        System.out.println("|No   |Menu                    |Harga           |QTY  |Sub Total        |");
+        System.out.println("| No  | Menu                   | Harga          | QTY | Sub Total       |");
         System.out.println("+-----+------------------------+----------------+-----+-----------------+");
 
         // ==================================== MENAMPILKAN SELURUH ELEMEN DI DALAM ARRAY ==================================== //
@@ -141,9 +140,9 @@ public class RamenShibuya {
             sub_total[i] = qty[i] * harga[i];
             total_bayar += sub_total[i];
             total_bayar-= (qty[i]*harga[i]*potonganHarga);
-            System.out.println("  "+(i + 1)+"    " + menu[i] + "    " + kursIndonesia.format(harga[i]) + "     " + qty[i] + "    " + kursIndonesia.format(sub_total[i]));
+            System.out.println("  "+(i + 1)+"     " + menu[i] + "    " + kursIndonesia.format(harga[i]) + "     " + qty[i] + "    " + kursIndonesia.format(sub_total[i]));
         }
-        System.out.println("-------------------------------------------------------------------------");
+        System.out.println("+-----------------------------------------------------------------------+");
 
         // ============================================= MENAMPILKAN TOTAL BAYAR ============================================= //
         System.out.println("Total Bayar : " + kursIndonesia.format(total_bayar));
