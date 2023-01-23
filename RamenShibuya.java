@@ -143,21 +143,29 @@ public class RamenShibuya {
         }
         System.out.println("+-----+------------------------+----------------+-----+-----------------+");
         System.out.println("");
+        System.out.println("");
 
         // ============================================= MENAMPILKAN TOTAL BAYAR ============================================= //
         
-        System.out.println("Diskon      : " +(int)(potonganHarga*100)+"%");
+        System.out.println("+---------------+ P A Y M E N T +---------------+");
+        System.out.println("+-----------------------------------------------+");
+        System.out.println("Diskon      : " +(int)(potonganHarga*100)+"%");                
         System.out.println("Total Bayar : " + kursIndonesia.format(total_bayar));
-        System.out.println("");
-        System.out.print("Bayar       : Rp. ");
-        bayar = input.nextInt();
-        total1 = (int) (bayar - total_bayar);
-        if (bayar>=total_bayar){
-            System.out.println("Kembalian   : " +kursIndonesia.format(total1));
-        }else {
-            System.out.println("MAAF UANG ANDA KURANG");
-        }
         
+        do { 
+        System.out.print("Bayar       : Rp. ");
+            bayar = input.nextInt();
+            if (bayar < total_bayar) {
+                System.out.println("");
+                System.out.println("MAAF UANG ANDA KURANG, SILAHKAN MASUKKAN ULANG");
+                System.out.println("");
+            }
+        } while (bayar < total_bayar);
+        
+        total1 = (int) (bayar - total_bayar);
+        System.out.println("Kembalian   : " +kursIndonesia.format(total1));
+        System.out.println("+-----------------------------------------------+");
+        System.out.println(" ");
         System.out.println(" ");
         System.out.println("+=======================+ TERIMAKASIH SUDAH DATANG +=======================+");
         System.out.println("+=========================+ SEMOGA ANDA SENANG <3 +========================+");
