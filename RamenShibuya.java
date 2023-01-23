@@ -13,6 +13,8 @@ public class RamenShibuya {
 
         // ================================================ DEKLARASI VARIABEL ================================================ //
         int jum = 0, i = 0;
+        int bayar = 0;
+        int total1 = 0;
         double total_bayar = 0;
         String kodeVoucher;
         double potonganHarga = 0;
@@ -117,9 +119,6 @@ public class RamenShibuya {
                     menu[i] = "Dorayaki             ";
                     harga[i] = 10500;
                     break;
-
-                default:
-                    System.out.println("ID Barang Tidak Tersedia");
             }
         }
 
@@ -142,11 +141,23 @@ public class RamenShibuya {
             total_bayar-= (qty[i]*harga[i]*potonganHarga);
             System.out.println("  "+(i + 1)+"     " + menu[i] + "    " + kursIndonesia.format(harga[i]) + "     " + qty[i] + "    " + kursIndonesia.format(sub_total[i]));
         }
-        System.out.println("+-----------------------------------------------------------------------+");
+        System.out.println("+-----+------------------------+----------------+-----+-----------------+");
+        System.out.println("");
 
         // ============================================= MENAMPILKAN TOTAL BAYAR ============================================= //
+        
+        System.out.println("Diskon      : " +(int)(potonganHarga*100)+"%");
         System.out.println("Total Bayar : " + kursIndonesia.format(total_bayar));
-        System.out.println(" ");
+        System.out.println("");
+        System.out.print("Bayar       : Rp. ");
+        bayar = input.nextInt();
+        total1 = (int) (bayar - total_bayar);
+        if (bayar>=total_bayar){
+            System.out.println("Kembalian   : " +kursIndonesia.format(total1));
+        }else {
+            System.out.println("MAAF UANG ANDA KURANG");
+        }
+        
         System.out.println(" ");
         System.out.println("+=======================+ TERIMAKASIH SUDAH DATANG +=======================+");
         System.out.println("+=========================+ SEMOGA ANDA SENANG <3 +========================+");
